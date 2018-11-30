@@ -1,19 +1,18 @@
 package Healper;
 
-import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class DriverUtility {
 
 	public static WebDriver driver;
-
-	public void DriverFucntion() {
-		DeleteBrowserAllCookies();
-		MaximizeTheBrowser();
-		ImplicitWaitTime();
-		PageLoadWaitTime();
+	
+	public static String GeckoDriver = "webdriver.gecko.driver";
+	public static String GeckoDriverPath = "Browser_Exe_Files/FireFox_GeckoDriver/geckodriver.exe";
+	
+	public void Browser_Property() {
+		System.setProperty(GeckoDriver , GeckoDriverPath);
+		driver = new FirefoxDriver();	
 	}
 
 	public void DeleteBrowserAllCookies() {
@@ -22,14 +21,6 @@ public class DriverUtility {
 
 	public void MaximizeTheBrowser() {
 		driver.manage().window().maximize();
-	}
-
-	public void ImplicitWaitTime() {
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	}
-
-	public void PageLoadWaitTime() {
-		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
 
 	public void NavigateTo(String URL) {
