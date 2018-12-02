@@ -1,10 +1,11 @@
 package Moduals;
 
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import Healper.DriverUtility;
+import globalized.GlobalizedAllPage;
 
-public class WindowUtility extends DriverUtility {
+public class WindowUtility extends GlobalizedAllPage {
 
 	public int NumberOfBrowserOpened() {
 		return driver.getWindowHandle().length();
@@ -34,6 +35,10 @@ public class WindowUtility extends DriverUtility {
 	public void SetWidthSizeOfCurrentWindow(int height) {
 		int width = GetHeightOfYourCurrenBrowser();
 		driver.manage().window().setSize(new Dimension(width, height));
+	}
+	
+	public void WaitUntil_(int NumberOfWindowOpen) {
+		WaitUtility.wait.until(ExpectedConditions.numberOfWindowsToBe(NumberOfWindowOpen)); // expectedNumberOfWindows
 	}
 
 }
