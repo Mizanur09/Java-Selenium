@@ -64,15 +64,13 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * Wait 30 SECONDS for the Alert to be present
 	 * @return
 	 */
-	public WebElement WaitUntil_AlertIsPresent() {
-		WebElement Element = null;
+	public void WaitUntil_AlertIsPresent() {
 		try {
 			pageWait.until(ExpectedConditions.alertIsPresent());
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 			e.printStackTrace();
 		}
-		return Element;
 	}
 
 	/****
@@ -84,7 +82,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	public WebElement WaitFor_VisibilityOfElementLocated(By by) {
 		WebElement Element = null;
 		try {
-			pageWait.until(ExpectedConditions.visibilityOfElementLocated(by));
+			Element = pageWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 			e.printStackTrace();
@@ -100,7 +98,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	public WebElement WaitFor_ElementToBeClickable(By by) {
 		WebElement Element = null;
 		try {
-			pageWait.until(ExpectedConditions.elementToBeClickable(by));
+			Element = pageWait.until(ExpectedConditions.elementToBeClickable(by));
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
 			e.printStackTrace();
@@ -113,15 +111,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param title the fragment of title expected
 	 * @return
 	 */
-	public WebElement WaitUntil_fragmenOftitleMatchs(String fragmenOTitle) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.titleContains(fragmenOTitle));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_fragmenOftitleMatchs(String fragmenOTitle) {
+		pageWait.until(ExpectedConditions.titleContains(fragmenOTitle));
 	}
 
 	/***
@@ -129,15 +120,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param title the expected title, which must be an exact match
 	 * @return
 	 */
-	public WebElement WaitUntil_ExecttitleMatchs(String ExactTitle) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.titleIs(ExactTitle));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_ExecttitleMatchs(String ExactTitle) {
+		pageWait.until(ExpectedConditions.titleIs(ExactTitle));
 	}
 
 	/***
@@ -145,15 +129,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param URL the URL that the page should be on
 	 * @return
 	 */
-	public WebElement WaitUntil_SpecificURL(String URL) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.urlToBe(URL));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_SpecificURL(String URL) {
+		pageWait.until(ExpectedConditions.urlToBe(URL));
 	}
 
 	/***
@@ -161,15 +138,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param the fraction of the URL that the page should be on
 	 * @return
 	 */
-	public WebElement WaitUntil_fragmenOfURL(String URL) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.urlContains(URL));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_fragmenOfURL(String URL) {
+		pageWait.until(ExpectedConditions.urlContains(URL));
 	}
 
 	/***
@@ -177,15 +147,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param URL the regular expression that the URL should match RegEx ("*&^%$ URL ****")
 	 * @return
 	 */
-	public WebElement WaitUntil_(String URL) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.urlMatches(URL));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_(String URL) {
+		pageWait.until(ExpectedConditions.urlMatches(URL));
 	}
 
 	/****
@@ -194,15 +157,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param GivenBoolean
 	 * @return
 	 */
-	public WebElement WaitUntil_ElementSelectedToBe(By by, boolean GivenBoolean) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.elementSelectionStateToBe(by, GivenBoolean));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_ElementSelectedToBe(By by, boolean GivenBoolean) {
+		pageWait.until(ExpectedConditions.elementSelectionStateToBe(by, GivenBoolean));
 	}
 
 	/*****
@@ -213,15 +169,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param value used as expected attribute value
 	 * @return
 	 */
-	public WebElement WaitUntil_AttributeToBe(By by, String attribute, String value) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.attributeToBe(by, attribute, value));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_AttributeToBe(By by, String attribute, String value) {
+		pageWait.until(ExpectedConditions.attributeToBe(by, attribute, value));
 	}
 
 	/****
@@ -230,15 +179,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param attribute used to define css or html attribute
 	 * @return
 	 */
-	public WebElement WaitUntil_AttributeNotEmpty(By by, String attributeThaChanges) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.attributeToBeNotEmpty(driver.findElement(by), attributeThaChanges));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_AttributeNotEmpty(By by, String attributeThaChanges) {
+		pageWait.until(ExpectedConditions.attributeToBeNotEmpty(driver.findElement(by), attributeThaChanges));
 	}
 
 	/****
@@ -247,83 +189,48 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param text    of the element
 	 * @return
 	 */
-	public WebElement WaitUntil_invisibilityOfElementWithTex(By by, String Text) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.invisibilityOfElementWithText(by, Text));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_invisibilityOfElementWithTex(By by, String Text) {
+		pageWait.until(ExpectedConditions.invisibilityOfElementWithText(by, Text));
 	}
 
 	/****
 	 * An expectation for checking number of WebElements with given locator
 	 * @param locator used to find the element
-	 * @param Number  used to define minimum number of element
+	 * @param Number used to define minimum number of element
 	 * @return
 	 */
-	public WebElement WaitUntil_NumberOfElementShouldBe(By by, int Number) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.numberOfElementsToBe(by, Number));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_NumberOfElementShouldBe(By by, int Number) {
+		pageWait.until(ExpectedConditions.numberOfElementsToBe(by, Number));
 	}
 
 	/****
 	 * An expectation for checking number of WebElements with given locator being less than defined number.
 	 * @param locator used to find the element
-	 * @param Number  used to define minimum number of element
+	 * @param Number used to define minimum number of element
 	 * @return
 	 */
-	public WebElement WaitUntil_NumberOfElementsToBeLessThan(By by, int Number) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.numberOfElementsToBeLessThan(by, Number));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_NumberOfElementsToBeLessThan(By by, int Number) {
+		pageWait.until(ExpectedConditions.numberOfElementsToBeLessThan(by, Number));
 	}
 
 	/***
 	 * An expectation for checking number of WebElements with given locator being more than defined number.
 	 * @param locator used to find the element
-	 * @param Number  used to define minimum number of element
+	 * @param Number used to define minimum number of element
 	 * @return
 	 */
-	public WebElement WaitUntil_NumberOfElementsToBeMoreThan(By by, int Number) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, Number));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_NumberOfElementsToBeMoreThan(By by, int Number) {
+		pageWait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, Number));
 	}
 
 	/****
 	 * An expectation for checking if the given text is present in the specified elements value attribute
 	 * @param locator used to find the element
-	 * @param text    to be present in the element's value attribute
+	 * @param text to be present in the element's value attribute
 	 * @return
 	 */
-	public WebElement WaitUntil_TextToBePresentInElement_AnyAttributeValue(By by, String Text) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(by), Text));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_TextToBePresentInElement_AnyAttributeValue(By by, String Text) {
+		pageWait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(by), Text));
 	}
 
 	/****
@@ -332,15 +239,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param pattern used as expected text matcher pattern
 	 * @return
 	 */
-	public WebElement WaitUntil_(By by, String sentanceTextOfTheText) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.textMatches(by, Pattern.compile(sentanceTextOfTheText)));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_(By by, String sentanceTextOfTheText) {
+		pageWait.until(ExpectedConditions.textMatches(by, Pattern.compile(sentanceTextOfTheText)));
 	}
 
 	/***
@@ -348,15 +248,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param locator used to find the element
 	 * @return
 	 */
-	public WebElement WaitUntil_AvailableFrameByELement(By by) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_AvailableFrameByELement(By by) {
+		pageWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
 	}
 
 	/****
@@ -365,15 +258,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param Check for the Frame by using FrameName
 	 * @return
 	 */
-	public WebElement WaitUntil_frameToBeAvailableAndSwitchToIt(String FrameName) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(FrameName));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_frameToBeAvailableAndSwitchToIt(String FrameName) {
+		pageWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(FrameName));
 	}
 
 	/***
@@ -381,15 +267,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param locator used to find the element
 	 * @return
 	 */
-	public WebElement WaitUntil_InvisibilityOfElement(By by) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.invisibilityOf(driver.findElement(by)));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_InvisibilityOfElement(By by) {
+		pageWait.until(ExpectedConditions.invisibilityOf(driver.findElement(by)));
 	}
 
 	/***
@@ -397,32 +276,18 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param locator used to find the element
 	 * @return
 	 */
-	public WebElement WaitUntil_InvisibilityOfAllElements(By by) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(by)));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_InvisibilityOfAllElements(By by) {
+		pageWait.until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(by)));
 	}
 
 	/****
 	 * An expectation for checking that an element with text is either invisible or not present on theDOM.
 	 * @param locator used to find the element
-	 * @param Text    of the element
+	 * @param Text of the element
 	 * @return
 	 */
-	public WebElement WaitUntil_InvisibilityOfElementWithText(By by, String VisibilityText) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.invisibilityOfElementWithText(by, VisibilityText));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_InvisibilityOfElementWithText(By by, String VisibilityText) {
+		 pageWait.until(ExpectedConditions.invisibilityOfElementWithText(by, VisibilityText));
 	}
 
 	/***
@@ -430,15 +295,8 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @param String javaScript used as executable script
 	 * @return
 	 */
-	public WebElement WaitUntil_JavaScriptToBeexecuted(String JavaScriptInString) {
-		WebElement Element = null;
-		try {
-			pageWait.until(ExpectedConditions.javaScriptThrowsNoExceptions(JavaScriptInString));
-		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
-		}
-		return Element;
+	public void WaitUntil_JavaScriptToBeexecuted(String JavaScriptInString) {
+		pageWait.until(ExpectedConditions.javaScriptThrowsNoExceptions(JavaScriptInString));
 	}
 
 }
