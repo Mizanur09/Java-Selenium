@@ -26,7 +26,16 @@ public class WaitUtility extends GlobalizedAllPage {
 	public void PageLoadWaitTime() {
 		driver.manage().timeouts().pageLoadTimeout(30, TimeUnit.SECONDS);
 	}
-
+	
+	/***
+	 * Browser will wait for given number in seconds
+	 * @param Number Of Seconds
+	 * @throws Exception
+	 */
+	public void WaitForSeconds(int NumberOfSeconds) throws Exception {
+		Thread.sleep(1000*NumberOfSeconds);
+	}
+	
 	/***
 	 * java Fluent Wait 
 	 * @param locator used to find the element
