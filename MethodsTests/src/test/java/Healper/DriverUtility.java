@@ -3,10 +3,12 @@ package Healper;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.ie.InternetExplorerDriver;
+import org.openqa.selenium.remote.DesiredCapabilities;
 
 public class DriverUtility {
 
-	 public static WebDriver driver;
+	public static WebDriver driver;
 
 // Driver Path
 	public static String GeckoDriverPath = "Browser_Exe_Files/FireFox_GeckoDriver/geckodriver.exe";
@@ -16,7 +18,7 @@ public class DriverUtility {
 //	Driver Name
 	public static String GeckoName = "webdriver.gecko.driver";
 	public static String ChromeName = "webdriver.chrome.driver";
-	public static String IEName = "webdriver.ie.driver";	
+	public static String IEName = "webdriver.ie.driver";
 
 	public void DeleteBrowserAllCookies() {
 		driver.manage().deleteAllCookies();
@@ -43,21 +45,40 @@ public class DriverUtility {
 	}
 
 	public WebDriver FireFoxBrowser() {
-		System.setProperty(GeckoName, GeckoDriverPath);
-		driver = new FirefoxDriver();
+		try {
+			System.setProperty(GeckoName, GeckoDriverPath);
+			driver = new FirefoxDriver();
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+		}
 		return driver;
 	}
 
-	public WebDriver ChromeBroser(String URL) {
-		System.setProperty("ChromeName", ChromeDriverPath);
-		driver = new ChromeDriver();
+	public WebDriver ChromeBroser() {
+		try {
+			System.setProperty(ChromeName, ChromeDriverPath);
+			driver = new ChromeDriver();
+
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+		}
 		return driver;
 	}
 
-	public WebDriver IEBrowser(String URL) {
-		System.setProperty("ChromeName", ChromeDriverPath);
-		driver = new ChromeDriver();
+	public WebDriver IEBrowser() { // need to fix this test
+		try {
+			System.setProperty(IEName, IEDriverPath);
+			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
+			capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+			driver = new InternetExplorerDriver();
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+		}
 		return driver;
+
 	}
 
 }

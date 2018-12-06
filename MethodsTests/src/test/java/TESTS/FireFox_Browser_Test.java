@@ -1,6 +1,7 @@
 package TESTS;
 
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import Healper.LibraryUtility;
@@ -15,7 +16,7 @@ public class FireFox_Browser_Test extends GlobalizedAllPage {
 		lib = new LibraryUtility(driver);
 	}
 	
-//	@Ignore
+	@Ignore
 	@Test
 	public void FireFoxBrowser_Test() throws Exception
 		{
@@ -30,11 +31,42 @@ public class FireFox_Browser_Test extends GlobalizedAllPage {
 			CloseBrowser();
 		}
 	
+	@Ignore
 	@Test
 	public void ChromeBrowserTest() throws Exception
 		{
-		
+			ChromeBroser();
+			
+			MaximizeTheBrowser();
+			DeleteBrowserAllCookies();
+			
+			UtilWait.ImplicitWaitTime();
+			UtilWait.PageLoadWaitTime();
+			
+			NavigateTo(URL);
+			
+			UtilWait.WaitForSeconds(5);
+			
+			CloseBrowser();
 		}
 	
+//	@Ignore
+	@Test
+	public void IEBrowserTest() throws Exception
+		{
+			IEBrowser();
+			
+			MaximizeTheBrowser();
+			DeleteBrowserAllCookies();
+			
+			UtilWait.ImplicitWaitTime();
+			UtilWait.PageLoadWaitTime();
+			
+			NavigateTo(URL);
+			
+			UtilWait.WaitForSeconds(5);
+			
+			CloseBrowser();
+		}
 	
 }
