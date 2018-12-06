@@ -20,5 +20,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/5"/>
 	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/client-combined-3.141.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/client-combined-3.141.5-sources.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/byte-buddy-1.8.15.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/commons-exec-1.3.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/guava-25.0-jre.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/okhttp-3.11.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/mizan/Desktop/Selenium tests/JavaSelenium/Selenium-Jar Files/okio-1.14.0.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

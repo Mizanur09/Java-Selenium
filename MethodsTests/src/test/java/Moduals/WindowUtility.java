@@ -37,8 +37,8 @@ public class WindowUtility extends GlobalizedAllPage {
 		driver.manage().window().setSize(new Dimension(width, height));
 	}
 	
-	public void WaitUntil_(int NumberOfWindowOpen) {
-		WaitUtility.wait.until(ExpectedConditions.numberOfWindowsToBe(NumberOfWindowOpen)); // expectedNumberOfWindows
-	}
+//	public void WaitUntil_(int NumberOfWindowOpen) {
+//		WaitUtility.pageWait.until(ExpectedConditions.numberOfWindowsToBe(NumberOfWindowOpen)); // expectedNumberOfWindows
+//	}
 
 }

@@ -9,7 +9,6 @@ public class FireFox_Browser extends GlobalizedAllPage {
 	
 		return this;
 	}
-	
-	
+
 	
 }

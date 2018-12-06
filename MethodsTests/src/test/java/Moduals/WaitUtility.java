@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Function;
 import java.util.regex.Pattern;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -17,7 +18,6 @@ import globalized.GlobalizedAllPage;
 
 public class WaitUtility extends GlobalizedAllPage {
 
-	public static WebDriverWait pageWait = new WebDriverWait(driver, 30);
 
 	public void ImplicitWaitTime() {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
@@ -66,6 +66,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 */
 	public void WaitUntil_AlertIsPresent() {
 		try {
+			WebDriverWait pageWait = new WebDriverWait(driver, 30);
 			pageWait.until(ExpectedConditions.alertIsPresent());
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -82,6 +83,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	public WebElement WaitFor_VisibilityOfElementLocated(By by) {
 		WebElement Element = null;
 		try {
+			WebDriverWait pageWait = new WebDriverWait(driver, 30);
 			Element = pageWait.until(ExpectedConditions.visibilityOfElementLocated(by));
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -98,6 +100,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	public WebElement WaitFor_ElementToBeClickable(By by) {
 		WebElement Element = null;
 		try {
+			WebDriverWait pageWait = new WebDriverWait(driver, 30);
 			Element = pageWait.until(ExpectedConditions.elementToBeClickable(by));
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -112,6 +115,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_fragmenOftitleMatchs(String fragmenOTitle) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.titleContains(fragmenOTitle));
 	}
 
@@ -121,6 +125,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_ExecttitleMatchs(String ExactTitle) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.titleIs(ExactTitle));
 	}
 
@@ -130,6 +135,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_SpecificURL(String URL) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.urlToBe(URL));
 	}
 
@@ -139,6 +145,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_fragmenOfURL(String URL) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.urlContains(URL));
 	}
 
@@ -148,6 +155,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_(String URL) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.urlMatches(URL));
 	}
 
@@ -158,6 +166,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_ElementSelectedToBe(By by, boolean GivenBoolean) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.elementSelectionStateToBe(by, GivenBoolean));
 	}
 
@@ -170,6 +179,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_AttributeToBe(By by, String attribute, String value) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.attributeToBe(by, attribute, value));
 	}
 
@@ -180,6 +190,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_AttributeNotEmpty(By by, String attributeThaChanges) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.attributeToBeNotEmpty(driver.findElement(by), attributeThaChanges));
 	}
 
@@ -190,6 +201,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_invisibilityOfElementWithTex(By by, String Text) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.invisibilityOfElementWithText(by, Text));
 	}
 
@@ -200,6 +212,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_NumberOfElementShouldBe(By by, int Number) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.numberOfElementsToBe(by, Number));
 	}
 
@@ -210,6 +223,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_NumberOfElementsToBeLessThan(By by, int Number) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.numberOfElementsToBeLessThan(by, Number));
 	}
 
@@ -220,6 +234,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_NumberOfElementsToBeMoreThan(By by, int Number) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.numberOfElementsToBeMoreThan(by, Number));
 	}
 
@@ -230,6 +245,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_TextToBePresentInElement_AnyAttributeValue(By by, String Text) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.textToBePresentInElementValue(driver.findElement(by), Text));
 	}
 
@@ -240,6 +256,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_(By by, String sentanceTextOfTheText) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.textMatches(by, Pattern.compile(sentanceTextOfTheText)));
 	}
 
@@ -249,6 +266,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_AvailableFrameByELement(By by) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(by));
 	}
 
@@ -259,6 +277,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_frameToBeAvailableAndSwitchToIt(String FrameName) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(FrameName));
 	}
 
@@ -268,6 +287,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_InvisibilityOfElement(By by) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.invisibilityOf(driver.findElement(by)));
 	}
 
@@ -277,6 +297,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_InvisibilityOfAllElements(By by) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.invisibilityOfAllElements(driver.findElements(by)));
 	}
 
@@ -287,6 +308,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_InvisibilityOfElementWithText(By by, String VisibilityText) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		 pageWait.until(ExpectedConditions.invisibilityOfElementWithText(by, VisibilityText));
 	}
 
@@ -296,6 +318,7 @@ public class WaitUtility extends GlobalizedAllPage {
 	 * @return
 	 */
 	public void WaitUntil_JavaScriptToBeexecuted(String JavaScriptInString) {
+		WebDriverWait pageWait = new WebDriverWait(driver, 30);
 		pageWait.until(ExpectedConditions.javaScriptThrowsNoExceptions(JavaScriptInString));
 	}
 
