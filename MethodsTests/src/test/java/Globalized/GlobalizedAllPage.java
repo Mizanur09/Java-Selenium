@@ -1,4 +1,4 @@
-package globalized;
+package Globalized;
 
 import org.junit.Before;
 

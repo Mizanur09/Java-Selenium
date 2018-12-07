@@ -2,7 +2,7 @@ package Healper;
 
 import org.openqa.selenium.WebDriver;
 
-import globalized.GlobalizedAllPage;
+import Globalized.GlobalizedAllPage;
 
 public class LibraryUtility extends GlobalizedAllPage{
 	private WebDriver driver;
@@ -26,6 +26,12 @@ public class LibraryUtility extends GlobalizedAllPage{
 	
 	public void setDemoMode(boolean isDemoMode) {
 		this.isDemoMode = isDemoMode;
+	}
+	
+	public LibraryUtility PrintException(Exception exceptionName) {
+		PrintString("Error => " + exceptionName.getMessage());
+		exceptionName.printStackTrace();
+		return this;
 	}
 	
 	public LibraryUtility PrintString(String Value) {

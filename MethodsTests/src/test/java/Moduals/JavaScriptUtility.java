@@ -1,6 +1,6 @@
 package Moduals;
 
-import globalized.GlobalizedAllPage;
+import Globalized.GlobalizedAllPage;
 
 public class JavaScriptUtility extends GlobalizedAllPage{
 

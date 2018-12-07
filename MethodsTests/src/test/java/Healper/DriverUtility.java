@@ -48,51 +48,93 @@ public class DriverUtility {
 	public int GetCookiesSize() {
 		return driver.manage().getCookies().size();
 	}
-
+	
+	public void SetBrowserProperty(String BrowserName, String BrowserPath) {
+		System.setProperty(BrowserName, BrowserPath);
+	}
+	
 	public WebDriver FireFoxBrowser() {
 		try {
-			System.setProperty(BrowserInfo.GeckoName, BrowserInfo.GeckoDriverPath);
+			SetBrowserProperty(
+					BrowserInfo.GeckoName, 
+					BrowserInfo.GeckoDriverPath);
 			driver = new FirefoxDriver();
 		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
+			lib.PrintException(e);
 		}
 		return driver;
 	}
 
 	public WebDriver ChromeBroser() {
 		try {
-			System.setProperty(BrowserInfo.ChromeName, BrowserInfo.ChromeDriverPath);
+			SetBrowserProperty(
+					BrowserInfo.ChromeName,
+					BrowserInfo.ChromeDriverPath);
 			driver = new ChromeDriver();
-
 		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
+			lib.PrintException(e);
 		}
 		return driver;
 	}
 
 	public WebDriver IEBrowser() {
 		try {
-			System.setProperty(BrowserInfo.IEName, BrowserInfo.IEDriverPath);
+			SetBrowserProperty(
+					BrowserInfo.IEName, 
+					BrowserInfo.IEDriverPath);
 			driver = new InternetExplorerDriver();
 		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
+			lib.PrintException(e);
 		}
 		return driver;
-
 	}
 
 	public WebDriver MicrosoftEdge() {
 		try {
-			System.setProperty(BrowserInfo.AdgeName, BrowserInfo.AdgeDriverPath);
+			SetBrowserProperty(
+					BrowserInfo.AdgeName, 
+					BrowserInfo.AdgeDriverPath);
 			driver = new EdgeDriver();
 		} catch (Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			e.printStackTrace();
+			lib.PrintException(e);
 		}
 		return driver;
-
 	}
+	
+	public WebDriver StartBrowserByName(String BrowserName) {
+		try {
+			if(BrowserName.contains("IE")) {
+				driver = IEBrowser();
+			}else if (BrowserName.contains("FireFox")) {
+				driver = FireFoxBrowser();
+			}else if (BrowserName.contains("Chrome")) {
+				driver = ChromeBroser();
+			}else if (BrowserName.contains("Adge")) {
+				driver = MicrosoftEdge();
+			}
+			
+		}catch (Exception e) {
+			lib.PrintException(e);
+		}
+		
+		return driver;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

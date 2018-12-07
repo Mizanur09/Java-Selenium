@@ -3,7 +3,7 @@ package Moduals;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-import globalized.GlobalizedAllPage;
+import Globalized.GlobalizedAllPage;
 
 public class WindowUtility extends GlobalizedAllPage {
 
