@@ -10,9 +10,7 @@ public class LibraryUtility extends GlobalizedAllPage{
 
 	/***
 	 * Constructor of UtilityLibrary class
-	 * 
 	 * @param _driver
-	 * 
 	 */
 	public LibraryUtility(WebDriver _driver) {
 		this.driver = _driver;
@@ -20,7 +18,6 @@ public class LibraryUtility extends GlobalizedAllPage{
 
 	/***
 	 * Setter for driver
-	 * 
 	 * @param _driver
 	 */
 	public void setDriver(WebDriver _driver) {
@@ -31,7 +28,10 @@ public class LibraryUtility extends GlobalizedAllPage{
 		this.isDemoMode = isDemoMode;
 	}
 	
-	
+	public LibraryUtility PrintString(String Value) {
+		System.out.println("%%%%%%%%%%%%%% "+ Value+ " %%%%%%%%%%%%%%");
+		return this;
+	}
 	
 	
 }

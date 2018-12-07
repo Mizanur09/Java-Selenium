@@ -1,24 +1,29 @@
 package Healper;
 
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+
+import Resources.DriverInfo;
 
 public class DriverUtility {
-
+//	%%%%%%%%%%%%%%%%%%%%%%%%%%%% DO NOT TOUCH LINES BELOW %%%%%%%%%%%%%%%%%%%%%%%%%%%
+	public static DriverInfo BrowserInfo = new DriverInfo();
 	public static WebDriver driver;
-
-// Driver Path
-	public static String GeckoDriverPath = "Browser_Exe_Files/FireFox_GeckoDriver/geckodriver.exe";
-	public static String ChromeDriverPath = "Browser_Exe_Files/ChromeEXE/Chromedriver.exe";
-	public static String IEDriverPath = "Browser_Exe_Files/IE_EXE/IEDriverServer.exe";
-
-//	Driver Name
-	public static String GeckoName = "webdriver.gecko.driver";
-	public static String ChromeName = "webdriver.chrome.driver";
-	public static String IEName = "webdriver.ie.driver";
+	public static LibraryUtility lib;
+// %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%//
+	
+	public String GetBrowserName() {
+		Capabilities cap = ((RemoteWebDriver) driver).getCapabilities();
+		String Platform = cap.getPlatform().toString();
+		String Version = cap.getVersion().toString();
+		String BrowserName = cap.getBrowserName().toUpperCase();
+		return "Platform => (" + Platform + ")  BROWSER Name => '" + BrowserName + "' Version => (" + Version + ")";
+	}
 
 	public void DeleteBrowserAllCookies() {
 		driver.manage().deleteAllCookies();
@@ -46,7 +51,7 @@ public class DriverUtility {
 
 	public WebDriver FireFoxBrowser() {
 		try {
-			System.setProperty(GeckoName, GeckoDriverPath);
+			System.setProperty(BrowserInfo.GeckoName, BrowserInfo.GeckoDriverPath);
 			driver = new FirefoxDriver();
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -57,7 +62,7 @@ public class DriverUtility {
 
 	public WebDriver ChromeBroser() {
 		try {
-			System.setProperty(ChromeName, ChromeDriverPath);
+			System.setProperty(BrowserInfo.ChromeName, BrowserInfo.ChromeDriverPath);
 			driver = new ChromeDriver();
 
 		} catch (Exception e) {
@@ -67,11 +72,9 @@ public class DriverUtility {
 		return driver;
 	}
 
-	public WebDriver IEBrowser() { // need to fix this test
+	public WebDriver IEBrowser() {
 		try {
-			System.setProperty(IEName, IEDriverPath);
-			DesiredCapabilities capabilities = DesiredCapabilities.internetExplorer();
-			capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+			System.setProperty(BrowserInfo.IEName, BrowserInfo.IEDriverPath);
 			driver = new InternetExplorerDriver();
 		} catch (Exception e) {
 			System.out.println("Error: " + e.getMessage());
@@ -81,4 +84,15 @@ public class DriverUtility {
 
 	}
 
+	public WebDriver MicrosoftEdge() {
+		try {
+			System.setProperty(BrowserInfo.AdgeName, BrowserInfo.AdgeDriverPath);
+			driver = new EdgeDriver();
+		} catch (Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			e.printStackTrace();
+		}
+		return driver;
+
+	}
 }
